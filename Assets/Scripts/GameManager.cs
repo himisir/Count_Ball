@@ -5,7 +5,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    //private SpawnManager spawnManager;
+    
     // Start is called before the first frame update
     public TextMeshProUGUI scoreText;
     [SerializeField] private CheckTrigger checkTriggerRed;
@@ -18,21 +18,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //spawnManager = GameObject.Find("Spawn Manager").GetComponent<SpawnManager>();
-        //scoreText = GetComponent<TextMeshProUGUI>();
-
         checkTriggerRed = GameObject.Find("Check Trigger").GetComponent<CheckTrigger>();
         checkTriggerBlue = GameObject.Find("Check Trigger").GetComponent<CheckTrigger>();
         checkTriggerGreen = GameObject.Find("Check Trigger").GetComponent<CheckTrigger>();
-
-
-
-
-
-        //checkTrigger = FindObjectOfType<CheckTrigger>();
-
-        //Score();
-
     }
 
     // Update is called once per frame
@@ -50,6 +38,10 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + finalScore;
 
     }
+
+    
+
+
 
 
 

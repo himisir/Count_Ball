@@ -6,18 +6,17 @@ public class CheckTrigger : MonoBehaviour
 {
     public int score;
     public bool isTrigger;
+ 
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
     }
-
     // Update is called once per frame
     void Update()
     {
 
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Red") && gameObject.CompareTag("RedBox"))
@@ -35,13 +34,14 @@ public class CheckTrigger : MonoBehaviour
             Debug.Log(gameObject.name + " is triggered");
             isTrigger = true;
         }
-        
-        if (isTrigger){
-             score++;
-             isTrigger = false;
+
+        if (isTrigger)
+        {
+            score++;
+            isTrigger = false;
 
         }
     }
-
+  
 
 }

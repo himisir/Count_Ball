@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19854
+  m_Name: pb_Mesh19924
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1068,6 +1068,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box_Green
       objectReference: {fileID: 0}
+    - target: {fileID: 7568937929787231947, guid: 5f8666e00e25e8d0bb439481452a173b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f8666e00e25e8d0bb439481452a173b, type: 3}
 --- !u!1 &658115677
@@ -1083,6 +1087,7 @@ GameObject:
   - component: {fileID: 658115679}
   - component: {fileID: 658115678}
   - component: {fileID: 658115682}
+  - component: {fileID: 658115683}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Ground
@@ -1179,7 +1184,22 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 10, y: 0, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.22, z: 0}
+--- !u!114 &658115683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658115677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1624168540eef6b34831ef7f1e6a3a38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectRed: {fileID: 2088871590894813759, guid: 745208c9d6e104225bd99e1ab894e3bb, type: 3}
+  effectGreen: {fileID: 7303472089845130122, guid: 6cbc21f5e9162483993a2b84b14d5ac8, type: 3}
+  effectBlue: {fileID: 15085447402717889, guid: 743ce290c74ae49c19aa3f128322fc7e, type: 3}
 --- !u!1001 &730297433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1238,6 +1258,10 @@ PrefabInstance:
     - target: {fileID: 7568937928574253821, guid: 90f7641d276ff5ea89575d87ab71bad1, type: 3}
       propertyPath: m_Name
       value: Box_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 7568937929787231947, guid: 90f7641d276ff5ea89575d87ab71bad1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f7641d276ff5ea89575d87ab71bad1, type: 3}
@@ -1425,6 +1449,10 @@ PrefabInstance:
     - target: {fileID: 7568937928574253821, guid: 66a10b85614fceb6395f10a4a33bc20d, type: 3}
       propertyPath: m_Name
       value: Box_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7568937929787231947, guid: 66a10b85614fceb6395f10a4a33bc20d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66a10b85614fceb6395f10a4a33bc20d, type: 3}
@@ -4872,8 +4900,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.9245283, g: 0.88123757, b: 0.763172, a: 1}
-  m_Intensity: 0.6
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4912,10 +4940,10 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 6.59
+  m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
