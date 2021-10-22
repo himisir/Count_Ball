@@ -12,6 +12,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] public float yMax = 45;
     [SerializeField] public float xMin = -25;
     [SerializeField] float xMax = 5;
+    [SerializeField] private DestroyExtraObjects script;
+    public bool isGameOver;
 
 
 
@@ -19,6 +21,9 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        script = GameObject.Find("Ground").GetComponent<DestroyExtraObjects>();
+        // will be assigned with isGameOver bool variable 
+
 
 
     }
@@ -26,19 +31,14 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Take input form arrow key
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
-        //Rotate player 
-        transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * (-horizontalInput));
-        transform.Rotate(Vector3.right * Time.deltaTime * turnSpeed * verticalInput);
 
-        //limit player rotation on x and y axis; 
-        LimitRotation();
-
+        isGameOver = script.isGameOver;
+        if (!isGameOver) Debug.Log("Game is over at PlayerControl");
+        StartGame();
     }
     void LimitRotation()
     {
+        //Limit player rotation
         Vector3 playerEulerAngles = transform.rotation.eulerAngles;
         //set x and y current angle; 
         playerEulerAngles.y = (playerEulerAngles.y > 180) ? playerEulerAngles.y - 360 : playerEulerAngles.y;
@@ -49,6 +49,31 @@ public class PlayerControl : MonoBehaviour
         playerEulerAngles.z = 0;
         //update the rotation
         transform.rotation = Quaternion.Euler(playerEulerAngles);
+    }
+
+    void Rotation()
+    {
+        //Take input form arrow key
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
+
+        //Rotate player 
+        transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * (-horizontalInput));
+        transform.Rotate(Vector3.right * Time.deltaTime * turnSpeed * verticalInput);
+
+    }
+
+    void StartGame()
+    {
+
+        if (!isGameOver)
+        {
+            Rotation();
+            LimitRotation();
+
+
+        }
+
     }
 
 

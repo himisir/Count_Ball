@@ -15,8 +15,11 @@ public class DestroyExtraObjects : MonoBehaviour
     public AudioClip balloonRed;
     public AudioClip balloonGreen;
     public AudioClip balloonBlue;
+    public bool isGameOver;
+    private int count;
     void Start()
     {
+        count = 0;
         audioSource = GetComponent<AudioSource>();
 
     }
@@ -28,34 +31,50 @@ public class DestroyExtraObjects : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-
-
-        if (collision.gameObject.CompareTag("Blue"))
+        if (!isGameOver)
         {
-            Debug.Log("Blue is now on the ground");
-            audioSource.PlayOneShot(balloonBlue, 1.0f);
 
-            Instantiate(effectBlue, collision.transform.position, effectBlue.transform.rotation);
 
+            if (collision.gameObject.CompareTag("Blue"))
+            {
+                count++;
+
+                Effects(effectBlue, balloonBlue);
+
+            }
+            else if (collision.gameObject.CompareTag("Red"))
+            {
+                count++;
+                Effects(effectRed, balloonRed);
+
+
+            }
+            else if (collision.gameObject.CompareTag("Green"))
+            {
+                count++;
+
+                Effects(effectGreen, balloonGreen);
+
+            }
+
+
+            if (count >= 3)
+            {
+                isGameOver = true;
+                if (!isGameOver) Debug.Log("Game is over at DestroyObjects");
+
+            }
+            Destroy(collision.gameObject);
+        }
+
+        void Effects(ParticleSystem effect, AudioClip clip)
+        {
+            audioSource.PlayOneShot(clip, 1.0f);
+            Instantiate(effect, collision.transform.position, effect.transform.rotation);
 
         }
-        else if (collision.gameObject.CompareTag("Red"))
-        {
-            Debug.Log("Red is now on the ground");
-            audioSource.PlayOneShot(balloonRed, 1.0f);
-            Instantiate(effectRed, collision.transform.position, effectBlue.transform.rotation);
-
-        }
-        else if (collision.gameObject.CompareTag("Green"))
-        {
-            Debug.Log("Green is now on the ground");
-            audioSource.PlayOneShot(balloonGreen, 1.0f);
-            Instantiate(effectGreen, collision.transform.position, effectBlue.transform.rotation);
-
-        }
-
-
-        Destroy(collision.gameObject);
 
     }
+
+
 }

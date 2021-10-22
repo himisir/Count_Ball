@@ -1116,6 +1116,8 @@ MonoBehaviour:
   yMax: 45
   xMin: -25
   xMax: 5
+  script: {fileID: 658115683}
+  isGameOver: 0
 --- !u!1 &506397285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,6 +1503,7 @@ MonoBehaviour:
   balloonRed: {fileID: 8300000, guid: e41f530f494a1ed16a62ac02e7f3358c, type: 3}
   balloonGreen: {fileID: 8300000, guid: 4bfee68a741e7e916829c2e9bcadf438, type: 3}
   balloonBlue: {fileID: 8300000, guid: 4bfee68a741e7e916829c2e9bcadf438, type: 3}
+  isGameOver: 0
 --- !u!82 &658115684
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5220,7 +5223,8 @@ MonoBehaviour:
   - {fileID: 7277606143447740964, guid: dadba15ea7fde0da4950db1b73631d3b, type: 3}
   - {fileID: 7277606143447740964, guid: c0dd59523a717e27d994d27dabd9de4b, type: 3}
   - {fileID: 7277606143447740964, guid: 5a8177282c5b4f45a8f3e4ccfe92f2fc, type: 3}
-  score: 0
+  script: {fileID: 658115683}
+  isGameOver: 0
 --- !u!1 &2089600628
 GameObject:
   m_ObjectHideFlags: 0
@@ -5255,6 +5259,8 @@ MonoBehaviour:
   checkTriggerRed: {fileID: 396753599}
   checkTriggerBlue: {fileID: 354080743}
   checkTriggerGreen: {fileID: 134650622}
+  script: {fileID: 658115683}
+  isGameOver: 0
   finalScore: 0
 --- !u!4 &2089600630
 Transform:
