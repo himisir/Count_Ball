@@ -7,8 +7,7 @@ using UnityEngine.UI;
 
 public class MySceneManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public bool isGameOver;    
+    public bool isGameOver;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI gameStartText;
@@ -16,16 +15,18 @@ public class MySceneManager : MonoBehaviour
     public GameObject restartMenu;
     public Button startButton;
     public Button restartButton;
+    public AudioSource backgroundAudio;
+    public AudioClip gameOverAudio;
+    private AudioSource audioSource;
 
     public DestroyExtraObjects script;
-    //public SpawnManager spawnScript;
     private bool flag;
 
 
     void Start()
     {
-        //startButton = GetComponent<Button>();
-        //restartButton = GetComponent<Button>();
+        audioSource = GetComponent<AudioSource>();
+        backgroundAudio.Stop(); 
         script = GameObject.Find("Ground").GetComponent<DestroyExtraObjects>();
         isGameOver = true;
 
@@ -39,8 +40,10 @@ public class MySceneManager : MonoBehaviour
 
     public void GameOver()
     {
+        scoreText.gameObject.SetActive(false);
+        backgroundAudio.Stop();
+        audioSource.PlayOneShot(gameOverAudio, 1.0f);
         restartMenu.gameObject.SetActive(true);
-        restartButton.gameObject.SetActive(true);
         isGameOver = script.isGameOver;
         flag = false;
     }
@@ -49,10 +52,9 @@ public class MySceneManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
-
     public void StartGame()
     {
+        backgroundAudio.Play();
         scoreText.gameObject.SetActive(true);
         starMenu.gameObject.SetActive(false);
         isGameOver = script.isGameOver;

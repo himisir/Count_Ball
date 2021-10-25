@@ -15,23 +15,15 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private MySceneManager script;
     public bool isGameOver;
 
-
-
-
-    // Start is called before the first frame update
     void Start()
     {
         script = GameObject.Find("SceneManager").GetComponent<MySceneManager>();
         isGameOver = script.isGameOver;
-
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
         isGameOver = script.isGameOver;
         if (isGameOver) Debug.Log("Game is over at PlayerControl");
         StartGame();
@@ -60,18 +52,15 @@ public class PlayerControl : MonoBehaviour
         //Rotate player 
         transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * (-horizontalInput));
         transform.Rotate(Vector3.right * Time.deltaTime * turnSpeed * verticalInput);
-
     }
 
     void StartGame()
     {
-
         if (!isGameOver)
         {
             Rotation();
             LimitRotation();
         }
-
     }
 
 

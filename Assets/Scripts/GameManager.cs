@@ -4,10 +4,7 @@ using UnityEngine;
 using TMPro;
 
 public class GameManager : MonoBehaviour
-{
-
-    // Start is called before the first frame update
-    public TextMeshProUGUI scoreText;
+{    public TextMeshProUGUI scoreText;
 
     [SerializeField] private CheckTrigger checkTriggerRed;
     [SerializeField] private CheckTrigger checkTriggerBlue;
@@ -17,7 +14,6 @@ public class GameManager : MonoBehaviour
 
     public bool isGameOver;
     private int count;
-
     public int finalScore;
 
     void Start()
@@ -25,7 +21,6 @@ public class GameManager : MonoBehaviour
         script = GameObject.Find("SceneManager").GetComponent<MySceneManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         isGameOver = script.isGameOver;

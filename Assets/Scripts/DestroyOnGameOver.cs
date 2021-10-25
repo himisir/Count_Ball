@@ -7,7 +7,6 @@ public class DestroyOnGameOver : MonoBehaviour
     [SerializeField] private MySceneManager script;
     public bool isGameOver;
 
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -16,7 +15,6 @@ public class DestroyOnGameOver : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
