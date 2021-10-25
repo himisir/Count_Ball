@@ -12,7 +12,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] public float yMax = 45;
     [SerializeField] public float xMin = -25;
     [SerializeField] float xMax = 5;
-    [SerializeField] private DestroyExtraObjects script;
+    [SerializeField] private MySceneManager script;
     public bool isGameOver;
 
 
@@ -21,8 +21,8 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        script = GameObject.Find("Ground").GetComponent<DestroyExtraObjects>();
-        // will be assigned with isGameOver bool variable 
+        script = GameObject.Find("SceneManager").GetComponent<MySceneManager>();
+        isGameOver = script.isGameOver;
 
 
 
@@ -33,7 +33,7 @@ public class PlayerControl : MonoBehaviour
     {
 
         isGameOver = script.isGameOver;
-        if (!isGameOver) Debug.Log("Game is over at PlayerControl");
+        if (isGameOver) Debug.Log("Game is over at PlayerControl");
         StartGame();
     }
     void LimitRotation()
@@ -70,8 +70,6 @@ public class PlayerControl : MonoBehaviour
         {
             Rotation();
             LimitRotation();
-
-
         }
 
     }

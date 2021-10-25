@@ -19,6 +19,7 @@ public class DestroyExtraObjects : MonoBehaviour
     private int count;
     void Start()
     {
+        //isGameOver = true;
         count = 0;
         audioSource = GetComponent<AudioSource>();
 
@@ -61,7 +62,7 @@ public class DestroyExtraObjects : MonoBehaviour
             if (count >= 3)
             {
                 isGameOver = true;
-                if (!isGameOver) Debug.Log("Game is over at DestroyObjects");
+                if (isGameOver) Debug.Log("Game is over at DestroyObjects");
 
             }
             Destroy(collision.gameObject);
