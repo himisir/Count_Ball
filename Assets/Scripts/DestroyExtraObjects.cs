@@ -38,10 +38,11 @@ public class DestroyExtraObjects : MonoBehaviour
                 count++;
                 Effects(effectGreen, balloonGreen);
             }
+
             if (count >= 3)
             {
                 isGameOver = true;
-                if (isGameOver) Debug.Log("Game is over at DestroyObjects");
+                //if (isGameOver) Debug.Log("Game is over at DestroyObjects");
             }
             Destroy(collision.gameObject);
         }

@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
     {
         while (!isGameOver)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(script.difficultyLevel);
             int indext = Random.Range(0, spawnList.Count);
             Instantiate(spawnList[indext]);
         }

@@ -9,6 +9,7 @@ public class CheckTrigger : MonoBehaviour
     public bool playSound;
     private AudioSource audioSource;
     public AudioClip scoreSound;
+    public bool isGameOver;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -35,12 +36,17 @@ public class CheckTrigger : MonoBehaviour
 
         if (isTrigger)
         {
-            audioSource.PlayOneShot(scoreSound, 1.0f );
+            audioSource.PlayOneShot(scoreSound, 1.0f);
             score++;
             isTrigger = false;
 
         }
-       
+        else
+        {
+            isGameOver = true;
+            
+        }
+
     }
 
 

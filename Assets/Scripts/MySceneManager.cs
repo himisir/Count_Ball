@@ -13,28 +13,34 @@ public class MySceneManager : MonoBehaviour
     public TextMeshProUGUI gameStartText;
     public GameObject starMenu;
     public GameObject restartMenu;
-    public Button startButton;
+    public Button easyButton;
+    public Button mediumButton;
+    public Button hardButton;
     public Button restartButton;
     public AudioSource backgroundAudio;
     public AudioClip gameOverAudio;
     private AudioSource audioSource;
 
     public DestroyExtraObjects script;
+    public GameManager gameManagerScript;
+
     private bool flag;
+    public int difficultyLevel;
 
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        backgroundAudio.Stop(); 
+        backgroundAudio.Stop();
         script = GameObject.Find("Ground").GetComponent<DestroyExtraObjects>();
+        gameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
         isGameOver = true;
 
     }
 
     void Update()
     {
-        if (flag && script.isGameOver) GameOver();
+        if (flag && (script.isGameOver || gameManagerScript.passGameover)) GameOver();
 
     }
 
@@ -44,7 +50,7 @@ public class MySceneManager : MonoBehaviour
         backgroundAudio.Stop();
         audioSource.PlayOneShot(gameOverAudio, 1.0f);
         restartMenu.gameObject.SetActive(true);
-        isGameOver = script.isGameOver;
+        isGameOver = true;
         flag = false;
     }
 
@@ -57,8 +63,13 @@ public class MySceneManager : MonoBehaviour
         backgroundAudio.Play();
         scoreText.gameObject.SetActive(true);
         starMenu.gameObject.SetActive(false);
-        isGameOver = script.isGameOver;
+        isGameOver = false;
         flag = true;
+    }
+    public void SetDifficulty(int difficulty)
+    {
+        difficultyLevel = difficulty;
+        StartGame();
     }
 
 }
